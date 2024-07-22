@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        .wrong .fa-check {
+            display: none;
+        }
+
+        .good .fa-xmark {
+            display: none;
+        }
+    </style>
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+                <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center mb-5">
+                                <img src="resources/brand-main.png" alt="BootstrapBrain Logo" width="300" height="70">
+                            </div>
+                        </div>
+                    </div>
+                    <form id="register-form" class="needs-validation" method="post" enctype="multipart/form-data"
+                        novalidate>
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="username" class="form-label">User Name <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-regular fa-address-card"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="username" id="username" required>
+                                    <div class="valid-feedback">Looks Good!</div>
+                                    <div class="invalid-feedback" id="invalid-username-feedback"> 
+                                        Please enter a username.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                    <div class="valid-feedback">Looks Good!</div>
+                                    <div class="invalid-feedback" id="invalid-email-feedback">
+                                        Please provide a valid email.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">Password <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-key"></i>
+                                    </span>
+                                    <input type="password" class="form-control" name="password" id="password" value=""
+                                        required>
+                                    <div class="valid-feedback">Looks Good!</div>
+                                    <div class="invalid-feedback" id="invalid-password-feedback">
+                                        Please provide a valid password.
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3 mb-0 d-none form-text" role="alert" id="password-alert">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="requirements leng">
+                                            <i class="fa fa-check text-success me-2"></i>
+                                            <i class="fa fa-xmark text-danger me-3"></i>
+                                            Your password must have at least 8 chars
+                                        </li>
+                                        <li class="requirements big-letter">
+                                            <i class="fa fa-check text-success me-2"></i>
+                                            <i class="fa fa-xmark text-danger me-3"></i>
+                                            Your password must have at least 1 capital letter.
+                                        </li>
+                                        <li class="requirements num">
+                                            <i class="fa fa-check text-success me-2"></i>
+                                            <i class="fa fa-xmark text-danger me-3"></i>
+                                            Your password must have at least 1 number.
+                                        </li>
+                                        <li class="requirements special-char">
+                                            <i class="fa fa-check text-success me-2"></i>
+                                            <i class="fa fa-xmark text-danger me-3"></i>
+                                            Your password must have at least 1 special char.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="userimage" class="form-label">Upload Profile Image</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-image"></i>
+                                    </span>
+                                    <input class="form-control" type="file" id="userimage" name="userimage"
+                                        accept=".gif, .png, .jpg, .jpeg">
+                                    <div class="invalid-feedback" id="invalid-userimage-feedback">
+                                        Please provide a valid image. Note: Valid image formats are JPG, JPEG, PNG & GIF
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="acknowledgement"
+                                        id="acknowledgement" required>
+                                    <label class="form-check-label text-secondary" for="acknowledgement">
+                                        I agree to the <a href="#!" class="link-primary text-decoration-none"
+                                            data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a>
+                                    </label>
+                                    <div class="invalid-feedback" id="invalid-acknowledgement-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-lg" type="submit" id="submit" name="submit">Sign
+                                        Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr class="mt-5 mb-4 border-secondary-subtle">
+                            <p class="m-0 text-secondary text-center">Already have an account? <a href="login.html"
+                                    class="link-primary text-decoration-none">Sign in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="termsModalLabel">Terms of Service</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>XYZ Company builds technologies and services that enable people to connect with each other, build
+                        communities
+                        and grow businesses. These Friendzone Terms of Service (the "Terms") govern your use of
+                        Friendzone and the
+                        other products, features, apps, services, technologies and software that we offer (the
+                        Friendzone Products
+                        or Products), except where we expressly state that separate terms (and not these) apply. These
+                        Products are
+                        provided to you by Friendzone, a division of XYZ Company.</p>
+
+                    <p>
+                        We don't charge you to use Friendzone or the other products and services covered by these Terms,
+                        unless we state otherwise. Instead, businesses, organisations and other persons pay us to show
+                        you ads for their products and services. Our Products enable you to connect with your friends
+                        and communities and to receive personalised content and ads that we think may be relevant to you
+                        and your interests. You acknowledge that by using our Products, we will show you ads that we
+                        think may be relevant to you and your interests. We use your personal data to help determine
+                        which personalised ads to show you.
+                    </p>
+
+                    <p>
+                        We don't sell your personal data to advertisers, and we don't share information that directly
+                        identifies you (such as your name, email address or other contact information) with advertisers
+                        unless you give us specific permission. Instead, advertisers can tell us things such as the kind
+                        of audience that they want to see their ads, and we show those ads to people who we think might
+                        be interested. We provide advertisers with reports about the performance of their ads that help
+                        them understand how people are interacting with their content on and off Friendzone Products.
+                        You can learn more about how Friendzone ads work here.
+                    </p>
+
+                    <p>
+                        Our Privacy Policy explains how we collect and use your personal data to determine some of the
+                        ads that you see and provide all of the other services described below. You can also go to your
+                        settings pages on Friendzone at any time to review the privacy choices that you have about how
+                        we use your data.
+                    </p>
+
+                    <p>
+                        The services we provide Our mission is to give people the power to build community and bring the
+                        world closer together. To help advance this mission, we provide the products and services
+                        described below to you:
+                        Provide a personalised experience for you:
+                        Your experience on Friendzone is unlike anyone else's: from the posts, stories, events, ads and
+                        other content that you see to the Friendzone Pages that you follow and other features you might
+                        use, such as Friendzone Marketplace and search. For example, we use data about the connections
+                        you make, the choices and settings you select, and what you share and do on and off our Products
+                        to personalise your experience.
+                        Connect you with people and organizations that you care about:
+                        We help you find and connect with people, groups, businesses, organizations and others that
+                        matter to you across the Friendzone Products you use. We use data to make suggestions for you
+                        and others – for example, groups to join, events to attend, Friendzone Pages to follow or people
+                        you may want to become friends with. Stronger ties make for better communities, and we believe
+                        that our services are most useful when people are connected to people, groups and organizations
+                        that they care about.
+                    </p>
+                    <p>
+                        Empower you to express yourself and communicate about what matters to you:
+                        There are many ways to express yourself on Friendzone to communicate with friends, family and
+                        others about what matters to you - for example, sharing status updates, photos, videos and
+                        stories across the Friendzone Products (consistent with your settings), creating events or
+                        groups, or adding content to your profile, as well as showing you insights on how others engage
+                        with your content.
+                    </p>
+                    <p>
+                        Help you discover content, products and services that may interest you:
+                        We show you personalized ads, offers and other sponsored or commercial content to help you
+                        discover content, products and services that are offered by the many businesses and
+                        organizations that use Friendzone Products.
+                    </p>
+                    <p>
+                        Promote the safety, security and integrity of our services:
+                        People will only build community on Friendzone Products if they feel safe and secure. We work
+                        hard to maintain the security of our Products and services. We employ dedicated teams, work with
+                        external partners, and develop technical systems to detect potential misuse, harmful conduct and
+                        situations where we may need to support or protect our community. If we learn of such content or
+                        conduct, we will take appropriate action.
+                    </p>
+                    <p>
+                        Use and develop advanced technologies to provide safe and functional services:
+                        We use and develop technologies like artificial intelligence and machine learning so that people
+                        can use our Products safely regardless of physical ability or location. For example, this helps
+                        people with visual impairments understand photos/videos shared on Friendzone.
+                    </p>
+                    <p>
+                        Research ways to make our services better:
+                        We engage in research to develop, test and improve our Products. This includes analyzing data
+                        about our users and how people use our Products, for example by conducting surveys and testing
+                        new features.
+                    </p>
+                    <p>
+                        Provide consistent experiences across the Friendzone Products:
+                        Our Products help you connect with people, groups, businesses and organizations important to
+                        you. We design our systems so your experience is consistent across the different Friendzone
+                        Products you use.
+                    </p>
+                    <p>
+                        Ensuring access to our services:
+                        To operate our services and enable global connectivity, we need to transfer, store and
+                        distribute content and data across our data centers, partners and systems around the world,
+                        including potentially outside your country of residence.
+                    </p>
+                    <p>
+                        How our services are funded Instead of paying to use Friendzone and the other products and
+                        services we offer, by using the Friendzone Products covered by these Terms, you acknowledge that
+                        we can show you personalized ads and other sponsored content that businesses and organizations
+                        pay us to promote on and off the Friendzone Products. We use your personal data, such as
+                        activity and interests, to show relevant and useful ads without telling advertisers who you are.
+                    </p>
+                    <p>
+                        Limits on using our intellectual property
+                        If you use content covered by intellectual property rights that we have and make available in
+                        our Products (for example, images, designs, videos or sounds that we provide, which you add to
+                        content that you create or share on Facebook), we retain all rights to that content (but not
+                        yours). You can only use our copyrights or trademarks (or any similar marks) as expressly
+                        permitted by our Brand Usage Guidelines or with our prior written permission. You must obtain
+                        our written permission (or permission under an open-source licence) to modify, translate, create
+                        derivative works of, decompile or reverse-engineer our products or their components, or
+                        otherwise attempt to extract source code from us, unless an exception or limitation applies
+                        under applicable law or your conduct.
+                    </p>
+                    Date of last revision: 20 April 2024
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script defer src="assets/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.getElementById('register-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                }
+            
+                const username = document.getElementById('username');
+                const email = document.getElementById('email');
+                const password = document.getElementById('password');
+                const acknowledgement = document.getElementById('acknowledgement');
+                const checkEmpty = [username, email, password];
+                checkEmpty.forEach(function(key){
+                    if(key.value.trim() == ""){
+                        key.classList.add("is-invalid");
+                        key.classList.remove("is-valid");
+                        return;
+                    } else {
+                        key.classList.remove("is-invalid");
+                        key.classList.add("is-valid");
+                    }
+                });
+                if(!acknowledgement.checked){
+                    acknowledgement.classList.add("is-invalid");
+                    acknowledgement.classList.remove("is-valid");
+                    return;
+                } else {
+                    acknowledgement.classList.remove("is-invalid");
+                    acknowledgement.classList.add("is-valid");
+                }
+                if (this.checkValidity()) {
+                    const obj = new FormData;
+                    obj.append('username', username.value);
+                    obj.append('email', email.value);
+                    obj.append('password', password.value);
+                    obj.append('userimage', document.getElementById('userimage').files[0]);
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var data = JSON.parse(this.response);
+                            if (data.status && data.status == "success") {
+                                console.log("successful");
+                                window.location.href = "login.html";
+                            } else {
+                                Object.keys(data.error_message).forEach(function(key) {
+                                    var errorMessage = data.error_message[key];
+                                    if(errorMessage.trim()!==""){
+                                        document.getElementById("invalid-"+key+"-feedback").innerText = errorMessage;
+                                        document.getElementById(key).classList.remove('is-valid');
+                                        document.getElementById(key).classList.add('is-invalid');
+                                    } else {
+                                        document.getElementById(key).classList.add('is-valid');
+                                        document.getElementById(key).classList.remove('is-invalid');
+                                    }
+                                    
+                                });
+                            }
+                        }
+                    };
+                    xhttp.open("POST", "register.php", false);
+                    xhttp.send(obj);
+                }
+            }, false);
+        });
+
+        const password = document.getElementById("password");
+        const passwordAlert = document.getElementById("password-alert");
+        const requirements = document.querySelectorAll(".requirements");
+        const leng = document.querySelector(".leng");
+        const bigLetter = document.querySelector(".big-letter");
+        const num = document.querySelector(".num");
+        const specialChar = document.querySelector(".special-char");
+        requirements.forEach((element) => element.classList.add("wrong"));
+        password.addEventListener("focus", () => {
+            passwordAlert.classList.remove("d-none");
+        });
+        password.addEventListener("blur", () => {
+            passwordAlert.classList.add("d-none");
+        });
+        password.addEventListener("input", () => {
+            const value = password.value;
+            const isLengthValid = value.length >= 8;
+            const hasUpperCase = /[A-Z]/.test(value);
+            const hasNumber = /\d/.test(value);
+            const hasSpecialChar = /[!@#$%^&*()\[\]{}\\|;:'",<.>/?`~]/.test(value);
+
+            leng.classList.toggle("good", isLengthValid);
+            leng.classList.toggle("wrong", !isLengthValid);
+            bigLetter.classList.toggle("good", hasUpperCase);
+            bigLetter.classList.toggle("wrong", !hasUpperCase);
+            num.classList.toggle("good", hasNumber);
+            num.classList.toggle("wrong", !hasNumber);
+            specialChar.classList.toggle("good", hasSpecialChar);
+            specialChar.classList.toggle("wrong", !hasSpecialChar);
+
+            const isPasswordValid = isLengthValid && hasUpperCase && hasNumber && hasSpecialChar;
+
+            if (isPasswordValid) {
+                requirements.forEach((element) => {
+                    element.classList.remove("wrong");
+                    element.classList.add("good");
+                });
+            }
+        });
+
+        
+
+    </script>
+    <script>
+        // $(document).ready(function(){
+        //     $('#submit').click(function(){
+        //         alert("submit clicked");
+        //     })
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+                <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center mb-5">
+                                <a href="#!">
+                                    <img src="resources/brand-main.png" alt="BootstrapBrain Logo" width="300"
+                                        height="70">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="login-form" method="post">
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="username" class="form-label">Username or Email <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5" />
+                                            <path
+                                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12z" />
+                                        </svg>
+                                    </span>
+                                    <input type="text" class="form-control" name="username" id="username" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid username.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">Password <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                        </svg>
+                                    </span>
+                                    <input type="password" class="form-control" name="password" id="password" value=""
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-lg" type="submit" name="submit">Log In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr class="mt-5 mb-4 border-secondary-subtle">
+                            <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center">
+                                <a href="./register.html" class="link-secondary text-decoration-none">Create new account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.getElementById('login-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                }
+                const username = document.getElementById('username');
+                const password = document.getElementById('password');
+                const checkEmpty = [username, password];
+                checkEmpty.forEach(function(key){
+                    if(key.value.trim() == ""){
+                        key.classList.add("is-invalid");
+                        key.classList.remove("is-valid");
+                        return;
+                    } else {
+                        key.classList.remove("is-invalid");
+                        key.classList.add("is-valid");
+                    }
+                });
+                if (this.checkValidity()) {
+                    const obj = new FormData;
+                    obj.append('username', username.value);
+                    obj.append('password', password.value);
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(this.response);
+                            var data = JSON.parse(this.response);
+                            if (data.status && data.status == "success") {
+                                window.location.href = "index.php";
+                            } else {
+                                var errorMessage = data.error_message;
+                                if(errorMessage.trim()!==""){
+                                    Array.from(document.getElementsByClassName("invalid-feedback")).forEach(function(element){
+                                        element.innerText = errorMessage;
+                                    });
+                                    username.classList.remove('is-valid');
+                                    username.classList.add('is-invalid');
+                                    password.classList.remove('is-valid');
+                                    password.classList.add('is-invalid');
+                                } else {
+                                    username.classList.add('is-valid');
+                                    username.classList.remove('is-invalid');
+                                    password.classList.add('is-valid');
+                                    password.classList.remove('is-invalid');
+                                }
+                            }
+                        }
+                    };
+                    xhttp.open("POST", "login.php", false);
+                    xhttp.send(obj);
+                }
+            }, false);
+        });
+    </script>
+</body>
+</html>

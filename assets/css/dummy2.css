@@ -1,0 +1,103 @@
+.primary {
+  background-color: #17181c;
+}
+
+.secondary {
+  background: #f8f8f8;
+}
+
+hr{
+    height: 2px;
+    color: #f0f1f4;
+    opacity: 1;
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 0.0625rem;
+  height: 100vh;
+  background-color: #f6f6f7;
+}
+
+body {
+  background: #f8f8f8;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.box {
+  max-width: 720px;
+  border: 1px solid #edeeef;
+}
+
+.profile_timestamp{
+  font-size: 12px;
+  color: #898a8d;
+}
+
+.box input {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.background-post-input{
+  background: #f0f2f5;
+}
+
+.attachment-sec {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin: 1rem 1rem;
+}
+
+.post-button {
+  width: 70px;
+  border: 1px solid #eff0f3;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgba(68, 68, 68, 0.2);
+  cursor: pointer;
+}
+
+.home-container {
+  padding: 20px;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.h7 {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.all-comments {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+.comment-text{
+  font-size: 14px;
+}
+
+.comment-user{
+  font-size: 15px;
+}
+
+.image-title{
+  font-size: 11px;
+}
+
+.post-image-input{
+  position: absolute;
+  left: -9999px;
+}
